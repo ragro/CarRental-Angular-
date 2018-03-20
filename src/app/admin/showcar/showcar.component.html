@@ -1,0 +1,39 @@
+<!-- 
+      <app-car
+        *ngFor="let foundCar of cars; let i = index"
+        [car] =  "foundCar"
+        [index] = "i"
+      ></app-car> -->
+      <table>
+          <tr>
+            <th>Car</th>
+            <th>Name</th>
+            <th>Number</th>
+            <th>Rate</th>
+            <th>City</th>
+            <th>Category</th>
+            <th></th>
+          </tr>
+        
+        
+          <tr *ngFor="let car of cars; let i = index" (click)="showCar(i)">
+          
+        
+                <td>
+                    <img src="{{car.image}}">
+                </td>
+            
+                <td>{{car.name}}</td>
+                <td>{{car.number}}</td>
+                <td>{{car.rate}}/day</td>
+                <td>{{car.city}}</td>
+                <td>{{car.category}}</td>
+                <td>
+                    <button class="btn btn-primary btn-block" [routerLink]="car._id">Edit</button>
+                </td>
+        
+        
+        </tr>
+        
+        
+</table>

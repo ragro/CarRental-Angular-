@@ -1,0 +1,94 @@
+
+
+
+<div class ="form-container">
+        <div class="form" align="center" >
+             <div style="width:80%; margin:25px auto;">  
+     
+                     <form (ngSubmit) = "onEdit()" #form="ngForm">
+                             <h3>Edit Car Details</h3>
+                         
+                         <div class="form-group">
+     
+                                    <div class="form-group">
+                                        <label for="name"> Name:</label>
+                                        <div class="form-group">
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   [ngModel]="name"
+                                                   name="name">
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                            <label for="number"> Number: </label>
+                                            <div class="form-group"> 
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   name="number"
+                                                   [ngModel]="number">
+                                            </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                            <label for="number"> Category: </label>
+                                            <div class="form-group"> 
+            
+                                            <select name="category" 
+                                                    class="form-control" 
+                                                    [ngModel]="category"
+                                            >
+                                                            <option value="suv">SUV</option>
+                                                            <option value="sedan">Sedan</option>
+                                                            <option value="tempo">Tempo</option>
+                                                    </select>
+                                            </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                            <label for="image"> Picture: </label>
+                                    <div class="form-group">   
+                                        <input type="text" 
+                                               class="form-control" 
+                                               name="image"
+                                               [ngModel]="image"> </div>
+                                    </div>
+            
+                                    <div class="form-group">
+                                            <label for="city"> City </label>
+                                            <div class="form-group"> 
+            
+                                            <select name="city" 
+                                                    class="form-control" 
+                                                    [ngModel]="city"
+                                            >
+                                                            <option value="faridabad">Faridabad</option>
+                                                            <option value="gurgaon">Gurgaon</option>
+                                                            <option value="delhi">Delhi</option>
+                                                            <option value="delhi">Delhi</option>
+                                                            
+                                                    </select>
+                                            </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="price">Rate:</label>
+                                        <div class="form-group"> 
+                                            <input type="text" 
+                                                    class="form-control" 
+                                                    name="rate"
+                                                    [ngModel]="rate"> </div>
+                                    </div>
+            
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Update Car</button>
+                         
+                         </div>
+                         
+                     </form>
+     
+             </div>
+     
+     </div>
+     
+     
+     

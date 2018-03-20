@@ -1,0 +1,24 @@
+.form{
+    text-align: center;
+}
+
+hr{
+    border: 0; 
+    border-bottom: 2px dashed #ddd; 
+    background: #999; 
+}
+
+.thumbnail{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+img{
+    border-radius: 10px;
+    height: 240px;
+}
+
+.caption p{
+    float: left;
+    margin:10px;
+}

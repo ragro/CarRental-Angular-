@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Full Name</th>
+    <th>City</th>
+    <th>DL. Number</th>
+    <th>Status</th>
+  </tr>
+
+  <tr *ngFor="let user of users" >
+    <td *ngIf="user.usertype!='admin'">{{user.username}}</td>
+    <td *ngIf="user.usertype!='admin'">{{user.fname}}{{user.lname}}</td>
+    <td *ngIf="user.usertype!='admin'">{{user.city}}</td>
+    <td *ngIf="user.usertype!='admin'">{{user.license}}</td>
+    <td *ngIf="user.usertype!='admin'">
+      <p *ngIf="user.blocked == true;else other">Blocked</p>
+      <ng-template #other>
+        <p>Unblocked</p>
+      </ng-template>
+    </td>
+  </tr>
+</table>
