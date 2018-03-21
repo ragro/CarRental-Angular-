@@ -13,13 +13,16 @@ import { SigninComponent } from "./auth/signin/signin.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { adminAuthService } from "./services/admin.auth.service";
 import { userAuthService } from "./services/user.auth.service";
+import { BookcarComponent } from "./user/bookcar/bookcar.component";
+import { UserdashboardComponent } from "./user/userdashboard/userdashboard.component";
 
 const appRoutes: Routes =[
     { path : '', component : HomeComponent },
     { path : 'signin', component: SigninComponent},
     { path : 'signup', component: SignupComponent},
-    { path: 'user', component : UserComponent,canActivate:[userAuthService], children:[
-        { path: '', component: UserComponent},
+    { path: 'user', component : UserComponent, children:[
+        { path: '', component: UserdashboardComponent},
+        { path: 'car/:car_id', component:BookcarComponent}
     ]},
     { path: 'admin', component:AdminComponent,canActivate:[adminAuthService] ,children:[
        { path: '', redirectTo: 'showcar', pathMatch:'full'},

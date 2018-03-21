@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'firebase';
 import { Http, Response } from '@angular/http';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-verifyuser',
@@ -11,14 +12,14 @@ export class VerifyuserComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(public http:Http) { }
+  constructor(public http:Http,
+              private authService : AuthService) { }
 
   ngOnInit() {
     this.verifyingUser().subscribe(
           
       (foundUsers) => {
               this.users.push(...foundUsers);        
-              console.log(this.users.length);
       },
       (err) => {
           console.log("something went wrong");
@@ -30,14 +31,13 @@ export class VerifyuserComponent implements OnInit {
     return this.http.get("http://localhost:8081/admin/showUsers").map(
       (response: Response) => {
           var data = response.json();
-          console.log(data);
           return data;
       }
     );
   }
 
-  onVerify(user:User){
-    console.log(user);
+  onVerify(userId){
+      this.authService.verifyUser(userId);
   }
 
 }

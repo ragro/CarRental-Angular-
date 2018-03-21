@@ -1,16 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CarService } from '../services/car.services';
-import { Car } from '../models/car.model';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
-@Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
-})
-export class UserComponent implements OnInit {
+import { CarService } from '../../services/car.services';
+import { Car } from '../../models/car.model';
 
+
+@Component({
+  selector: 'app-userdashboard',
+  templateUrl: './userdashboard.component.html',
+  styleUrls: ['./userdashboard.component.css']
+})
+export class UserdashboardComponent implements OnInit {
   cars : Car[] = [] ;
   @ViewChild('form') findForm : NgForm;
 
@@ -46,4 +47,9 @@ export class UserComponent implements OnInit {
     this.router.navigate(["car",car._id],{relativeTo:this.route});
   }
 
+
 }
+
+
+
+

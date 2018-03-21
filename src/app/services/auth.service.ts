@@ -26,6 +26,25 @@ export class AuthService{
                 private router : Router,
                 private flashmessage : FlashMessage){}
 
+
+    verifyUser(userid){
+        this.http.get("http://localhost:8081/admin/verify/"+userid).subscribe(
+            (response : Response) => {
+                if(response.json().success){
+                            this.flashmessage.success("loggedin sucessfully", 
+                        { delay: 2500, generalClass: 'alert alert-success' });
+                        
+                        this.router.navigate(["/admin/verify"],{})
+                }else{
+                            this.flashmessage.success("something went wrong", 
+                        { delay: 2500, generalClass: 'alert alert-danger' });
+                        this.router.navigate(["/admin/verify"],{})
+                }
+                
+            }
+        );
+    }            
+
     signIn(email:string, password:string){
         let data = {
             'username' : email,
@@ -47,14 +66,13 @@ export class AuthService{
                     
                         this.loginstatus.next(true);
                     
-                    if (JSON.parse(localStorage.getItem('user')).username == 'admin') {
+                    if (JSON.parse(localStorage.getItem('user')).usertype == 'admin') {
                         this.isadmin=true;
                         this.router.navigate(['/admin']);
                     }
                     else {
                         this.router.navigate(['/user'])
                     }
-                    this.router.navigate(["/user"]);
 
                 }else{
                     this.flashmessage.success("Invalid Credentials", 
@@ -114,8 +132,24 @@ export class AuthService{
         this.flashmessage.success("Logged you out Successfully", 
                         { delay: 2500, generalClass: 'alert alert-success' });
         this.loginstatus.next(false);
-        this.router.navigate(['/signin']);
+        this.router.navigate(['']);
     }
+
+
+    isloggedin() {
+        if (localStorage.getItem('user') !== null) {
+            if (JSON.parse(localStorage.getItem('user')).username == 'admin') {
+                this.isadmin = true;
+            }
+            return true;
+        }
+        else {
+            this.isadmin = false;
+            return false;
+        }
+    }
+
+
 }
 
 

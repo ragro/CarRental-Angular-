@@ -24,6 +24,8 @@ import { AuthService } from './services/auth.service';
 import { FlashMessageModule } from 'angular-flash-message';
 import { userAuthService } from './services/user.auth.service';
 import { adminAuthService } from './services/admin.auth.service';
+import { BookcarComponent } from './user/bookcar/bookcar.component';
+import { UserdashboardComponent } from './user/userdashboard/userdashboard.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { adminAuthService } from './services/admin.auth.service';
     ShowuserComponent,
     VerifyuserComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    BookcarComponent,
+    UserdashboardComponent
   ],
   imports: [
     BrowserModule,

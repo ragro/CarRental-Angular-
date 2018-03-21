@@ -4,15 +4,16 @@
       <th>Full Name</th>
       <th>City</th>
       <th>DL. Number</th>
+      <th>Verify Button</th>
     </tr>
   
-    <div *ngFor="let user of users" >
-      <tr *ngIf="user.verified != true" >
-          <td *ngIf="user.usertype!='admin'">{{user.username}}</td>
-          <td *ngIf="user.usertype!='admin'">{{user.fname}}{{user.lname}}</td>
-          <td *ngIf="user.usertype!='admin'">{{user.city}}</td>
-          <td *ngIf="user.usertype!='admin'">{{user.license}}</td>
-          <button (click)="onVerify(user)">Verify</button>
-      </tr>   
-    </div>
+    <tr *ngFor="let user of users" >
+      
+          <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.username}}</td>
+          <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.fname}}{{user.lname}}</td>
+          <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.city}}</td>
+          <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.license}}</td>
+          <td *ngIf="user.verified != true && user.usertype!='admin'"><button (click)="onVerify(user._id)">Verify</button></td>
+    </tr>   
+    
   </table>

@@ -14,12 +14,12 @@ export class userAuthService implements CanActivate {
                 return true;
             } else {
                 this.flashmessage.danger("you are not a valid user");
-                this.router.navigate(['/user/login']);
+                this.router.navigate(['/signin']);
                 return false;
             }
         } else {
             this.flashmessage.danger("you have to login first")
-            this.router.navigate(['/user/login']);
+            this.router.navigate(['/signin']);
             return false;
         }
 
