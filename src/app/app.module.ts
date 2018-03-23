@@ -26,6 +26,7 @@ import { userAuthService } from './services/user.auth.service';
 import { adminAuthService } from './services/admin.auth.service';
 import { BookcarComponent } from './user/bookcar/bookcar.component';
 import { UserdashboardComponent } from './user/userdashboard/userdashboard.component';
+import { PaymentComponent } from './user/payment/payment.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { UserdashboardComponent } from './user/userdashboard/userdashboard.compo
     SigninComponent,
     SignupComponent,
     BookcarComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

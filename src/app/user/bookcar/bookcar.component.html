@@ -1,11 +1,8 @@
-<div class="well well-md">
-
-<div class = "card">
-        <div class="card-body">
-          
-              <div class="row">
+<div class="container">
+       
+        <div class="row">
                   
-                  <div class="col-md-7 col-xs-12">
+                  <div class="col-md-6 col-xs-6 col-lg-6">
                       <div class="row">
       
                           <!-- CAR DETAILS -->                                 
@@ -39,86 +36,81 @@
                           </div>
                           
                       </div>
-      
-                      <!-- BOOKING DETAILS -->
-                  <div *ngIf="verified; else message">
-                      <div class="row">
-                          <h4 class="alert alert-info"><strong>Your Schedule :</strong></h4>
-                          <form (ngSubmit)="onproceed(f)" #f="ngForm">
-                              <div class="col-xs-6">
-      
-                                  <div class="form-group">
-      
-                                      <label for="fromdate">From :</label>
-                                      <input 
-                                        type="date" 
-                                        class="form-control" 
-                                        name="fromdate" 
-                                        [ngModel]="fdate"
-                                        required>
-                                  </div>
-      
-                                  <div class="form-group">
-                                      <label for="fromcity">Pickup City :</label>
-                                      <input 
-                                        type="hidden" 
-                                        id="fromcity" 
-                                        [ngModel]="fcity" 
-                                        name="fromcity"
-                                        required>
-                                      <p class="form-control">{{car.city}}</p>
-                                  </div>
-      
-                              </div>
-                              <div class="col-xs-6">
-                                  <div class="form-group">
-      
-                                      <label for="todate">To :</label>
-                                      <input 
-                                        type="date" 
-                                        class="form-control" 
-                                        [ngModel]="tdate" 
-                                        name="todate"
-                                        required>
-                                  </div>
-      
-                                  <div class="form-group">
-                                      <label for="tocity">Drop City :</label>
-                                      <select class="form-control" 
-                                              id="tocity" 
-                                              [ngModel]="tcity" 
-                                              name="tocity"
-                                              required>
-                                              <option value="faridabad">Faridabad</option>
-                                              <option value="gurgaon">Gurgaon</option>
-                                              <option value="delhi">Delhi</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="row">
-                                  <div class="col-xs-12">
-                                      <div align="center">
-                                       <button class="btn btn-primary" *ngIf="!proceed" type="submit">Continue</button>
-                                     <br>  <br><h1  class="label label-danger myfont">{{msg}}</h1>
-                                        <div *ngIf="proceed">
-                                          <span style="font-size:18px" class="label label-warning"><strong>Number of days</strong> {{days}} </span> <br> <br>
-                                          <span style="font-size:18px" class="label label-warning"><strong>Amount to pay</strong> {{amount}}</span> <br> <br>
-                                            <button class="btn btn-success" [disabled]="!verified" (click)="onBook(f)">Book </button>
-                                        </div> 
-                                          <span class="label label-danger" style="font-size:18px" *ngIf="!verified">you are not verifed yet</span>
-      
-                                      </div>
-                                  </div>
-                              </div>
-                          </form>
-                        </div>
-                    </div>
-                    <ng-template #message><p id="message">You are not yet verified..</p></ng-template>
+            </div>
 
-                  </div>                    
-              </div>
-      </div>
-</div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div *ngIf="verified; else message">
+                            <div class="row">
+                                <h4 class="alert alert-info"><strong>Your Schedule :</strong></h4>
+                                
+                                <form (ngSubmit)="onContinue(car._id)" #form="ngForm">
+                                    <div class="col-xs-6">
+            
+                                        <div class="form-group">
+            
+                                            <label for="fromdate">From :</label>
+                                            <input 
+                                              type="date" 
+                                              class="form-control" 
+                                              name="fromdate" 
+                                              [ngModel]="fdate"
+                                              required>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="fromcity">Pickup City :</label>
+                                            <input 
+                                              type="hidden" 
+                                              id="fromcity" 
+                                              [ngModel]="fcity" 
+                                              name="fromcity"
+                                              required>
+                                            <p class="form-control">{{car.city}}</p>
+                                        </div>
+            
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+            
+                                            <label for="todate">To :</label>
+                                            <input 
+                                              type="date" 
+                                              class="form-control" 
+                                              [ngModel]="tdate" 
+                                              name="todate"
+                                              required>
+                                        </div>
+            
+                                        <div class="form-group">
+                                            <label for="tocity">Drop City :</label>
+                                            <select class="form-control" 
+                                                    id="tocity" 
+                                                    [ngModel]="tcity" 
+                                                    name="tocity"
+                                                    required>
+                                                    <option value="faridabad">Faridabad</option>
+                                                    <option value="gurgaon">Gurgaon</option>
+                                                    <option value="delhi">Delhi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <div align="center">
+                                                     <button class="btn btn-primary" type="submit">Continue</button>
+                                            </div> 
+
+                                            <h3>{{msg}}</h3>
+                                        </div>
+                                    </div>
+                              </form>
+                          </div>
+                      </div>
+                          
+                          <ng-template #message><p id="message">You are not yet verified..</p></ng-template>
+            </div>
+                   
+        </div>
           
 </div>
 

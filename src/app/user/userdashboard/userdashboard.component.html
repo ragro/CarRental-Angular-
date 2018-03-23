@@ -55,8 +55,8 @@
               *ngFor="let car of cars; let i = index"
             >
             
-              <a href="#" class="thumbnail">
-                <img src="{{car.image}}" alt="">
+              <a class="thumbnail">
+                <img src="{{car.image}}" alt="" (click)="onBook(car)">
               </a>
 
               <div class = "caption">

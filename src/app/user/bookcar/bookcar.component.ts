@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarService } from '../../services/car.services';
 import { ActivatedRoute, Params, RouterLink, Router } from '@angular/router';
 import { Car } from '../../models/car.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-bookcar',
@@ -10,6 +11,9 @@ import { Car } from '../../models/car.model';
 })
 export class BookcarComponent implements OnInit {
 
+  @ViewChild('form') form : NgForm;
+
+  
   msg : string="";
   id:string;
   car: Car;
@@ -27,7 +31,8 @@ export class BookcarComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,
-              private carService : CarService) { }
+              private carService : CarService,
+              private router : Router) { }
 
   ngOnInit() {
     this.verified= JSON.parse(localStorage.getItem('user')).verified;
@@ -44,5 +49,29 @@ export class BookcarComponent implements OnInit {
       }
     )
   }
+
+  
+  onContinue(car_id){
+  
+    var rate :number = Number(this.car.rate);
+    var days : number= Math.abs(new Date(this.form.value.todate).getTime()-new Date(this.form.value.fromdate).getTime())/(1000*24*3600);
+    
+    var amount: number= days*rate ;
+    var userId = JSON.parse(localStorage.getItem('user')).userid;
+
+    if(new Date(this.form.value.todate).getTime()<new Date(this.form.value.fromdate).getTime()){
+      this.msg="Please Choose Correct Date...";
+    }else{
+            if(new Date(this.form.value.fromdate).getTime()<new Date().getTime()){
+                this.msg="Please Choose Correct Date...";
+            }else{
+              this.msg="";
+              console.log("Amount to paid = "+amount);
+              this.carService.setAmount(amount,car_id,userId);
+              this.router.navigate(["payment"],{relativeTo:this.route});
+            }
+    }
+
+ }
 
 }

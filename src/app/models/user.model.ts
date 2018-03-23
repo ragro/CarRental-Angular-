@@ -12,12 +12,8 @@ export class User
     public license:String;
     public usertype   : String;
     public verified : Boolean; //this field works as flag for driving license approval
-    bookedcar : [{
-            type : Car
-            ref : "car"
-
-    }];
-    blocked : Boolean  // this field gives facility to admin to block a user
+    public bookedcar : String[];
+    public blocked : Boolean  // this field gives facility to admin to block a user
     public password : String;
 
     constructor(
@@ -32,9 +28,11 @@ export class User
                 license : string,
                 usertype : string,
                 verified : boolean,
-                blocked : boolean
+                blocked : boolean,
+                bookedcar:String[]
 
     ){
+        this.bookedcar.push(...bookedcar);
         this.username = username;
         this.fname = fname;
         this.lname = lname;

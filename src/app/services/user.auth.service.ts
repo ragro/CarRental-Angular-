@@ -10,7 +10,7 @@ export class userAuthService implements CanActivate {
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         if (localStorage.getItem('user') !== null) {
-            if (JSON.parse(localStorage.getItem('user')).username !== 'admin') {
+            if (JSON.parse(localStorage.getItem('user')).usertype != 'admin') {
                 return true;
             } else {
                 this.flashmessage.danger("you are not a valid user");

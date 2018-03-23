@@ -115,7 +115,7 @@ export class AuthService{
                     
                         this.loginstatus.next(true);
                     
-                    this.router.navigate(["/user"]);
+                    this.router.navigate([""]);
 
                 }else{
                     this.flashmessage.success("Something went wrong", 
@@ -138,7 +138,7 @@ export class AuthService{
 
     isloggedin() {
         if (localStorage.getItem('user') !== null) {
-            if (JSON.parse(localStorage.getItem('user')).username == 'admin') {
+            if (JSON.parse(localStorage.getItem('user')).usertype == 'admin') {
                 this.isadmin = true;
             }
             return true;

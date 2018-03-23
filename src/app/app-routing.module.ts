@@ -15,6 +15,7 @@ import { adminAuthService } from "./services/admin.auth.service";
 import { userAuthService } from "./services/user.auth.service";
 import { BookcarComponent } from "./user/bookcar/bookcar.component";
 import { UserdashboardComponent } from "./user/userdashboard/userdashboard.component";
+import { PaymentComponent } from "./user/payment/payment.component";
 
 const appRoutes: Routes =[
     { path : '', component : HomeComponent },
@@ -22,7 +23,8 @@ const appRoutes: Routes =[
     { path : 'signup', component: SignupComponent},
     { path: 'user', component : UserComponent, children:[
         { path: '', component: UserdashboardComponent},
-        { path: 'car/:car_id', component:BookcarComponent}
+        { path: 'car/:car_id', component:BookcarComponent},
+        { path: 'car/:car_id/payment', component: PaymentComponent}
     ]},
     { path: 'admin', component:AdminComponent,canActivate:[adminAuthService] ,children:[
        { path: '', redirectTo: 'showcar', pathMatch:'full'},
