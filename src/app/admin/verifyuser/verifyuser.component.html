@@ -13,7 +13,7 @@
           <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.fname}}{{user.lname}}</td>
           <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.city}}</td>
           <td *ngIf="user.verified != true && user.usertype!='admin'">{{user.license}}</td>
-          <td *ngIf="user.verified != true && user.usertype!='admin'"><button (click)="onVerify(user._id)">Verify</button></td>
+          <td *ngIf="user.verified != true && user.usertype!='admin'"><button class="btn btn-primary btn-sm" (click)="onVerify(user._id)">Verify</button></td>
     </tr>   
     
   </table>

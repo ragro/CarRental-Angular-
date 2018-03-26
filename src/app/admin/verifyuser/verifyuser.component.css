@@ -7,10 +7,15 @@ th,td{
     text-align: center;
 }
 th{
-    background-color: gray;
+    background-color: black;
     color: white;
+    height : 40px
 }
 
-tr div{
+tr:nth-child(even){
     background-color: wheat;
+}
+
+tr:nth-child(odd){
+    background-color: lightgoldenrodyellow;
 }

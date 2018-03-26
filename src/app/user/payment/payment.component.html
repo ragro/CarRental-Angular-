@@ -1,14 +1,15 @@
-
-                        <div *ngIf="!payment">
-                            <div align="center">                           
+                    <div *ngIf="!payment">
+                            <div style="margin: 90px 350px">                           
                             
-                                <div class="well" style="width:600px">
-                                            <h1>PAYMENT</h1>
-                                    <span style="color:blue;font-weight:300;font-size:18px">
+                                <div class="well" style="width:600px; height:300px">
+                                            <div id="head">
+                                                <strong>PAYMENT</strong>
+                                            </div>
+                                    <span style="color:black;font-weight:300;font-size:18px;margin:200px">
                                         Payment :{{amount}}
                                     </span>
                                     <div class="form-group row">
-                                        <label for="card" class="col-sm-3 col-form-label">card number</label>
+                                        <label for="card" class="col-sm-3 col-form-label" style="font-size : 18px">Card Number</label>
                                         <div class="col-sm-9">
                                             <input 
                                                 id="card" 
@@ -21,10 +22,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-8">
+                                        <div class="col-sm-6">
                                             <div class="form-group row">
-                                                <label for="expDate" class="col-sm-2 col-form-label">Expiry date</label>
-                                                <div class="col-sm-10">
+                                                <label for="expDate" class="col-sm-3 col-form-label" style="font-size : 18px">Expiry date</label>
+                                                <div class="col-sm-8">
                                                     <input 
                                                         id="expDate" 
                                                         type="date" 
@@ -36,10 +37,10 @@
                                             
                                             
                                         </div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group row">
-                                                <label for="cvv" class="col-sm-2 col-form-label">cvv</label>
-                                                <div class="col-sm-10">
+                                        <div class="col-sm-6">
+                                            <div class="form-group row ">
+                                                <label for="cvv" class="col-sm-2 col-form-label" style="font-size : 18px">Cvv</label>
+                                                <div class="col-sm-9">
                                                     <input 
                                                         id="cvv" 
                                                         type="text" 
@@ -52,7 +53,7 @@
                                         </div>
                                     </div>
                                     
-                                    <button class="btn primary" (click)="onPayment()"> payment</button>
+                                    <button class="btn btn-info btn-lg" (click)="onPayment()" style="margin: auto 210px">PAYMENT</button>
                                 </div>
                             
                             </div>
